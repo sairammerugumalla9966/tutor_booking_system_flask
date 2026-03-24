@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Admin Dashboard 🛠️</h2>
+
+<p>Welcome, {{ session['name'] }} 👋</p>
+
+<hr>
+
+<h3>👥 User Management</h3>
+<ul>
+    <li><a href="/admin/users">View All Users</a></li>
+    <li><a href="/admin/tutors">Approve Tutors</a></li>
+</ul>
+
+<hr>
+
+<h3>📊 System Monitoring</h3>
+<ul>
+    <li><a href="/all-slots">View All Available Slots</a></li>
+    <li><a href="/my-bookings">View Bookings</a></li>
+</ul>
+
+<hr>
+
+<h3>⚙️ Account</h3>
+<ul>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+
+{% endblock %}

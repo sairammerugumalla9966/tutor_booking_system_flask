@@ -30,7 +30,7 @@
             <td>{{ booking['status'] }}</td>
             <td>
                 <a href="/cancel/{{ booking['id'] }}" onclick="return confirm('Are you sure?')">Cancel</a>
-                <a href="/cancel/{{ booking['id'] }}">Cancel</a>
+                
             </td>
         </tr>
         {% endfor %}
