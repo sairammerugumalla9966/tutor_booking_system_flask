@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<html>
+<head>
+    
+    <title>My Bookings</title>
+</head>
+<body>
+
+    <h2>My Bookings</h2>
+
+    <table border="1">
+        <tr>
+            <th>Tutor ID</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking['tutor_id'] }}</td>
+            <td>{{ booking['date'] }}</td>
+            <td>{{ booking['time'] }}</td>
+            <td>{{ booking['status'] }}</td>
+            <td>
+                <a href="/cancel/{{ booking['id'] }}" onclick="return confirm('Are you sure?')">Cancel</a>
+                <a href="/cancel/{{ booking['id'] }}">Cancel</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Tutor App{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- 🔝 HEADER -->
+    <header style="background:#333; color:rgb(255, 255, 255); padding:10px;">
+        <h2>Tutor Booking System</h2>
+
+        {% if session.get('user_id') %}
+            <span>Welcome, {{ session['name'] }}</span> |
+            <a href="/dashboard" style="color:white;">Dashboard</a> |
+            <a href="/all-slots" style="color:white;">Book Slot</a> |
+            <a href="/my-bookings" style="color:white;">My Bookings</a> |
+            <a href="/add-slot" style="color:white;">Add Slot</a> |
+            <a href="/my-slots" style="color:white;">My Slots</a> |
+            <a href="/logout" style="color:white;">Logout</a>
+        {% else %}
+            <a href="/login" style="color:white;">Login</a> |
+            <a href="/register" style="color:white;">Register</a>
+        {% endif %}
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/all-slots">Book Slot</a>
+            <a href="/my-bookings">Bookings</a>
+        </nav>
+        
+    </header>
+
+    <hr>
+
+    <!-- 📄 PAGE CONTENT -->
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <hr>
+
+    <!-- 🔻 FOOTER -->
+    <footer style="background:#333; color:rgb(255, 255, 255); padding:10px; margin-top:20px;">
+        <p>© 2026 Tutor Booking System | Built with Flask</p>
+    </footer>
+
+</body>
+</html>
